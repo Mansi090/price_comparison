@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "Price Comparator",
+    "version": "1.0",
+    "description": "Compare product prices across different shopping websites.",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://www.flipkart.com/*",
+        "https://www.myntra.com/*",
+        "https://www.croma.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.amazon.in/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
